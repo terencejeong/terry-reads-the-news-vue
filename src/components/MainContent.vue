@@ -1,6 +1,7 @@
 <template>
   <v-layout row wrap align-center>
     <v-flex :class="isMobile"  offset-md2>
+      <h1 style="text-align: center; color: rgba(0,0,0,0.87)">{{articles[0].source.name}}</h1>
       <div v-for="article in articles" :key="article.title">
         <v-card class="my-3" hover data-aos="zoom-in" data-aos-easing="ease">
           <v-img
@@ -21,24 +22,8 @@
             <v-chip small color="secondary" class="white--text">
               {{article.source.name}}
             </v-chip>
-            <!--<v-spacer></v-spacer>-->
-            <!--<v-btn icon class="red&#45;&#45;text">-->
-              <!--<v-icon small>fa-reddit</v-icon>-->
-            <!--</v-btn>-->
-            <!--<v-btn icon class="light-blue&#45;&#45;text">-->
-              <!--<v-icon small>fa-twitter</v-icon>-->
-            <!--</v-btn>-->
-            <!--<v-btn icon class="blue&#45;&#45;text text&#45;&#45;darken-4">-->
-              <!--<v-icon small>fa-facebook</v-icon>-->
-            <!--</v-btn>-->
-            <!--<v-btn icon class="red&#45;&#45;text">-->
-              <!--<v-icon small>fa-google-plus</v-icon>-->
-            <!--</v-btn>-->
-            <!--<v-btn icon class="blue&#45;&#45;text text&#45;&#45;darken-4">-->
-              <!--<v-icon small>fa-linkedin</v-icon>-->
-            <!--</v-btn>-->
             <v-spacer></v-spacer>
-            <v-btn small replace color="info" :href="article.url" target="_blank" >Read More</v-btn>
+            <v-btn small replace color="info" :href="article.url" target="_blank">Read More</v-btn>
           </v-card-actions>
         </v-card>
       </div>
@@ -51,6 +36,9 @@
     props: {
       articles: Array,
     },
+    mounted() {
+      return window.scrollTo(0,0);
+    },
     computed: {
       isMobile: () => {
         return {
@@ -61,3 +49,6 @@
     }
   }
 </script>
+
+
+

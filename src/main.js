@@ -9,6 +9,6 @@ Vue.config.productionTip = false
 new Vue({
   render: h => h(App),
   created() {
-    AOS.init({ disable: "phone" });
+    AOS.init();
   }
 }).$mount('#app')
